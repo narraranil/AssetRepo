@@ -115,16 +115,16 @@
       </record>
     </record>
     <record javaclass="com.wm.util.Values">
-      <value name="name">maam</value>
+      <value name="name">test</value>
       <value name="id">3</value>
       <record name="address" javaclass="com.wm.util.Values">
-        <value name="line1">jhdkjsad</value>
-        <value name="city">slkjdflasd</value>
-        <value name="state">CA</value>
+        <value name="line1">line1</value>
+        <value name="city">singapore</value>
+        <value name="state">na</value>
       </record>
       <record name="contact" javaclass="com.wm.util.Values">
-        <value name="phone">656565</value>
-        <value name="email">hgjghhghk</value>
+        <value name="phone">84982457</value>
+        <value name="email">x@y.com</value>
       </record>
     </record>
   </array>
