@@ -115,7 +115,7 @@
       </record>
     </record>
     <record javaclass="com.wm.util.Values">
-      <value name="name">test</value>
+      <value name="name">test1</value>
       <value name="id">3</value>
       <record name="address" javaclass="com.wm.util.Values">
         <value name="line1">line1</value>
