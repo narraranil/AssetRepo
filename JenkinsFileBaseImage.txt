@@ -8,8 +8,8 @@ pipeline {
         }
 	stage('Create base docker file'){
             steps {
-                sh "${MSR_TARGET_DOCKER}/is_container.sh createDockerfile "
-		echo "${MSR_TARGET_DOCKER}/is_container.sh createDockerfile "
+                sh "${MSR_TARGET_DOCKER}/is_container.sh createDockerfile -Dimage.name=alpine:3.7"
+		echo "${MSR_TARGET_DOCKER}/is_container.sh createDockerfile -Dimage.name=alpine:3.7"
             }
         }
 	stage('Build base MSR image'){
