@@ -4,7 +4,7 @@ node ('master') {
     environment{
         env="resources/test/classes,resources/java/classes,resources/test/jars,resources/java/jars,resources/jars"
     }
-    ws("C:\\HudsonRoot") {
+    ws(${WORKSPACE}) {
   echo "Used custom workspace"
 	stage ('02_Execute_WmTestSuite - Checkout') {
 	    
