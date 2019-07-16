@@ -114,19 +114,6 @@
         <value name="email">contact@johnandsons.com</value>
       </record>
     </record>
-    <record javaclass="com.wm.util.Values">
-      <value name="name">test1</value>
-      <value name="id">3</value>
-      <record name="address" javaclass="com.wm.util.Values">
-        <value name="line1">line1</value>
-        <value name="city">singapore</value>
-        <value name="state">na</value>
-      </record>
-      <record name="contact" javaclass="com.wm.util.Values">
-        <value name="phone">84982457</value>
-        <value name="email">x@y.com</value>
-      </record>
-    </record>
   </array>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
