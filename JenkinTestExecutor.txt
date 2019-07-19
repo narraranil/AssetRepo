@@ -20,9 +20,9 @@ pipeline {
  				sh "ant -buildfile /var/lib/jenkins/workspace/AccelerateMSRCustomerImage/assets/IS/Tests/AirlineDemoTestSuiteExecutor/run-composite-runner.xml -DwebMethods.integrationServer.ssl=false -DwebMethods.home=/opt/softwareag -DwebMethods.test.setup.profile.mode=NONE -DwebMethods.integrationServer.name=localhost -DwebMethods.test.setup.location=/var/lib/jenkins/workspace/AccelerateMSRCustomerImage/assets/IS/Tests/AirlineDemoTests -DwebMethods.test.setup.external.classpath.layout=${env} -DwebMethods.integrationServer.port=5555 -DwebMethods.test.scope.packages=UnitTests -DwebMethods.integrationServer.userid=Administrator -DwebMethods.test.profile.result.location=/var/lib/jenkins/workspace/AccelerateMSRCustomerImage/assets/IS/Tests/AirlineDemoTestSuiteExecutor/test/reports/ -DwebMethods.integrationServer.password=manage composite-runner-all-tests" 
 
 	}
-	{
+	
 	publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '/var/lib/jenkins/workspace/AccelerateMSRCustomerImage/assets/IS/Tests/AirlineDemoTestSuiteExecutor/test/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
-	}
+	
 }
 }
 }
