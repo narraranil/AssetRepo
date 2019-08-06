@@ -2,7 +2,7 @@ apiVersion: apps/v1 # for versions before 1.8.0 use apps/v1beta1
 kind: Deployment
 metadata:
   name: DEPLOYMENTNAME
-  namespace: presales-default
+  namespace: asia-presales
   labels:
    app: APPNAME
 spec:
@@ -28,7 +28,7 @@ kind: Service
 apiVersion: v1	
 metadata:
   name: SERVICENAME
-  namespace: presales-default
+  namespace: asia-presales
 spec:
   type: ClusterIP
   selector:
@@ -42,7 +42,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: SERVICENAME
-  namespace: presales-default
+  namespace: asia-presales
 spec:	
   rules:
   - host: ENDPOINT.daeidemo02.k8s.eur.ad.sag
