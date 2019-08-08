@@ -56,12 +56,6 @@ spec:
   - hosts:
     - ENDPOINT.daeidemo02.k8s.eur.ad.sag
     secretName: daeidemo02 
- ---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: customer-config
-  namespace: asia-presales
 data:
   myvalue: 2
 
