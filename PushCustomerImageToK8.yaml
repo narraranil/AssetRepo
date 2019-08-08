@@ -56,7 +56,5 @@ spec:
   - hosts:
     - ENDPOINT.daeidemo02.k8s.eur.ad.sag
     secretName: daeidemo02 
-data:
-  myvalue: 2
 
 
