@@ -23,6 +23,12 @@ spec:
         - containerPort: 5555
       imagePullSecrets:
         - name: acctest
+      - env:
+        - name: myvalue
+          valueFrom:
+           configMapKeyRef:
+            key: myvalue
+            name: customer-config
 ---
 kind: Service
 apiVersion: v1	
@@ -55,13 +61,5 @@ spec:
   tls:
   - hosts:
     - ENDPOINT.daeipresal40399.k8s.eur.ad.sag
-    secretName: daeidemo02 
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: customer-config
-  namespace: asia-presales
-data:
-  myvalue: "2"
+    secretName: daeidemo02
 
