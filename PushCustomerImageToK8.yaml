@@ -55,5 +55,5 @@ spec:
   tls:
   - hosts:
     - ENDPOINT.daeipresal40399.k8s.eur.ad.sag
-    secretName: daeidemo02
+    secretName: daeipresal40399
 
