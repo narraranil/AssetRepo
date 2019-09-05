@@ -1,0 +1,71 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.20.198.167"],"port":80,"protocol":"HTTP","serviceName":"presales-default:ingress-53ad7ea32a70f1e258735452b3e393e0","ingressName":"presales-default:microgateway","hostname":"microgateway.presales-default.10.20.198.167.xip.io","path":"/","allNodes":true}]'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"mcgw-deployment"},"name":"mcgw-deployment","namespace":"presales-default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"mcgw-deployment"}},"template":{"metadata":{"annotations":{"prometheus.io/scrape":"true"},"labels":{"app":"mcgw-deployment"}},"spec":{"containers":[{"image":"siqabvt/microgateway","name":"mcgw-deployment","ports":[{"containerPort":9090}]}]}}}}
+  creationTimestamp: "2019-07-20T09:47:19Z"
+  generation: 684
+  labels:
+    app: mcgw-deployment
+  name: mcgw-deployment
+  namespace: presales-default
+  resourceVersion: "20266576"
+  selfLink: /apis/apps/v1beta2/namespaces/presales-default/deployments/mcgw-deployment
+  uid: 5d955213-aad3-11e9-a498-005056849e51
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: mcgw-deployment
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: mcgw-deployment
+    spec:
+      containers:
+      - image: siqabvt/microgateway
+        imagePullPolicy: Always
+        name: mcgw-deployment
+        ports:
+        - containerPort: 9090
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2019-07-20T09:49:54Z"
+    lastUpdateTime: "2019-07-20T09:49:54Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2019-07-20T09:47:33Z"
+    lastUpdateTime: "2019-07-20T09:49:54Z"
+    message: ReplicaSet "mcgw-deployment-6887ff4fd9" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 684
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
