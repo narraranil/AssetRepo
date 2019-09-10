@@ -45,7 +45,7 @@ metadata:
   namespace: asia-presales
 spec:	
   rules:
-  - host: ENDPOINT.daeipresal40399.k8s.eur.ad.sag
+  - host: ENDPOINT.daeipresal40399.eur.ad.sag
     http:
       paths:
       - backend:
@@ -54,6 +54,6 @@ spec:
         path: /
   tls:
   - hosts:
-    - ENDPOINT.daeipresal40399.k8s.eur.ad.sag
+    - ENDPOINT.daeipresal40399.eur.ad.sag
     secretName: daeipresal40399
 
