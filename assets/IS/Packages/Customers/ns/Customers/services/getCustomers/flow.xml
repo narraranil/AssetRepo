@@ -89,6 +89,19 @@
 <Values version="2.0">
   <array name="xml" type="record" depth="1">
     <record javaclass="com.wm.util.Values">
+      <value name="name">sag</value>
+      <value name="id">3</value>
+      <record name="address" javaclass="com.wm.util.Values">
+        <value name="line1">mbfc</value>
+        <value name="city">singapore</value>
+        <value name="state">singapore</value>
+      </record>
+      <record name="contact" javaclass="com.wm.util.Values">
+        <value name="phone">123456789</value>
+        <value name="email">123@sag.com</value>
+      </record>
+    </record>
+    <record javaclass="com.wm.util.Values">
       <value name="name">Acme Inc</value>
       <value name="id">1</value>
       <record name="address" javaclass="com.wm.util.Values">
