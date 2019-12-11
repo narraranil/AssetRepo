@@ -13,7 +13,7 @@ pipeline {
         }
 	
 	
-	stage('Push Customer image To K8'){
+	stage('Push Customer image To AKS'){
 		steps{
 		sh '${WORKSPACE}/DeployCustomerImageToAKS.sh'
 	    }
