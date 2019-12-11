@@ -3,17 +3,12 @@ kind: Deployment
 metadata:
   annotations:
     deployment.kubernetes.io/revision: "1"
-    field.cattle.io/publicEndpoints: '[{"addresses":["10.20.198.167"],"port":80,"protocol":"HTTP","serviceName":"presales-default:ingress-02aa0f148c0d82a6e4427a23e9b63a3c","ingressName":"presales-default:apigateway","hostname":"apigateway.presales-default.10.20.198.167.xip.io","path":"/apigatewayui","allNodes":true},{"addresses":["10.20.198.167"],"port":80,"protocol":"HTTP","serviceName":"presales-default:ingress-584304044df5add38bb69cdf289bbad7","ingressName":"presales-default:apigateway","hostname":"apigateway.presales-default.10.20.198.167.xip.io","path":"/","allNodes":true}]'
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"api-gateway-deployment"},"name":"api-gateway-deployment","namespace":"presales-default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"api-gateway-deployment"}},"template":{"metadata":{"labels":{"app":"api-gateway-deployment"}},"spec":{"containers":[{"image":"bhmmeka/api10.4:apigwdep","imagePullPolicy":"IfNotPresent","name":"api-gateway-deployment","ports":[{"containerPort":5555,"name":"5555tcp1","protocol":"TCP"},{"containerPort":9072,"name":"9072tcp1","protocol":"TCP"},{"containerPort":9240,"name":"9240tcp1","protocol":"TCP"}]}],"initContainers":[{"command":["sysctl","-w","vm.max_map_count=262144"],"image":"busybox","imagePullPolicy":"IfNotPresent","name":"init-sysctl","securityContext":{"privileged":true}}]}}}}
-  creationTimestamp: "2019-07-19T05:34:50Z"
-  generation: 664
   labels:
     app: api-gateway-deployment
   name: api-gateway-deployment
-  namespace: presales-default
+  namespace: asia-presales
   resourceVersion: "20266573"
-  selfLink: /apis/apps/v1beta2/namespaces/presales-default/deployments/api-gateway-deployment
+  selfLink: /apis/apps/v1beta2/namespaces/asia-presales/deployments/api-gateway-deployment
   uid: edaf6cfa-a9e6-11e9-a498-005056849e51
 spec:
   progressDeadlineSeconds: 600
@@ -88,3 +83,80 @@ status:
   readyReplicas: 1
   replicas: 1
   updatedReplicas: 1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/targetWorkloadIds: '["deployment:asia-presales:api-gateway-deployment"]'
+  creationTimestamp: "2019-07-19T05:42:07Z"
+  labels:
+    cattle.io/creator: norman
+  name: ingress-02aa0f148c0d82a6e4427a23e9b63a3c
+  namespace: asia-presales
+  ownerReferences:
+  - apiVersion: v1beta1/extensions
+    controller: true
+    kind: Ingress
+    name: apigateway
+    uid: f214c247-a9e7-11e9-a498-005056849e51
+  resourceVersion: "19086363"
+  selfLink: /api/v1/namespaces/asia-presales/services/ingress-02aa0f148c0d82a6e4427a23e9b63a3c
+  uid: f1e6e1a3-a9e7-11e9-b6ef-005056846528
+spec:
+  clusterIP: 10.43.50.200
+  ports:
+  - port: 9072
+    protocol: TCP
+    targetPort: 9072
+  selector:
+    workloadID_ingress-02aa0f148c0d82a6e4427a23e9b63a3c: "true"
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+ ---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/creatorId: u-fmux6lm4tw
+    field.cattle.io/ingressState: '{"YXBpZ2F0ZXdheS9wcmVzYWxlcy1kZWZhdWx0L3hpcC5pby8vLzU1NTU=":"deployment:asia-presales:api-gateway-deployment","YXBpZ2F0ZXdheS9wcmVzYWxlcy1kZWZhdWx0L3hpcC5pby8vYXBpZ2F0ZXdheXVpLzkwNzI=":"deployment:asia-presales:api-gateway-deployment"}'
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.20.198.167"],"port":80,"protocol":"HTTP","serviceName":"asia-presales:ingress-02aa0f148c0d82a6e4427a23e9b63a3c","ingressName":"asia-presales:apigateway","hostname":"apigateway.asia-presales.10.20.198.167.xip.io","path":"/apigatewayui","allNodes":true},{"addresses":["10.20.198.167"],"port":80,"protocol":"HTTP","serviceName":"asia-presales:ingress-584304044df5add38bb69cdf289bbad7","ingressName":"asia-presales:apigateway","hostname":"apigateway.asia-presales.10.20.198.167.xip.io","path":"/","allNodes":true}]'
+  creationTimestamp: "2019-07-19T05:42:07Z"
+  generation: 362
+  labels:
+    cattle.io/creator: norman
+  name: apigateway
+  namespace: asia-presales
+  resourceVersion: "20266366"
+  selfLink: /apis/extensions/v1beta1/namespaces/asia-presales/ingresses/apigateway
+  uid: f214c247-a9e7-11e9-a498-005056849e51
+spec:
+  rules:
+  - host: apigateway.daeipresal40399.eur.ad.sag
+    http:
+      paths:
+      - backend:
+          serviceName: ingress-02aa0f148c0d82a6e4427a23e9b63a3c
+          servicePort: 9072
+        path: /apigatewayui
+  - host: apigateway.daeipresal40399.eur.ad.sag
+    http:
+      paths:
+      - backend:
+          serviceName: ingress-584304044df5add38bb69cdf289bbad7
+          servicePort: 5555
+        path: /
+  tls:
+  - hosts:
+    - apigateway.daeidemo02.eur.ad.sag
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.20.198.167
+    - ip: 10.20.198.168
+    - ip: 10.20.199.120
+    - ip: 10.20.199.121
+
+

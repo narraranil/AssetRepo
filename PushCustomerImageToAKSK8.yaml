@@ -1,0 +1,38 @@
+apiVersion: apps/v1 # for versions before 1.8.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: newsvc-customer-msr-deployment
+  labels:
+   app: newsvc-customer-sagmsr
+spec:
+  replicas: 1 # tells deployment to run 1 pod matching the template
+  selector:
+    matchLabels:
+      app: newsvc-customer-sagmsr
+  template: # create pods using pod definition in this template
+    metadata:
+        labels:
+          app: newsvc-customer-sagmsr
+    spec:
+      containers:
+      - name: customer-ismicroservicesruntime
+        image: narraranil/is:Customer1.0
+        imagePullPolicy: IfNotPresent        
+        ports:
+        - containerPort: 5555
+      imagePullSecrets:
+        - name: acctest
+---
+kind: Service
+apiVersion: v1	
+metadata:
+  name: newsvc-customer-sagmsr-service
+spec:
+  type: ClusterIP
+  selector:
+    app: newsvc-customer-sagmsr
+  ports:
+  - protocol: TCP
+    port: 5555
+    targetPort: 5555
+
