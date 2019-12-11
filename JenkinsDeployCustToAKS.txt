@@ -15,7 +15,7 @@ pipeline {
 	
 	stage('Push Customer image To AKS'){
 		steps{
-		echo '${WORKSPACE}'
+
 		
 		sh '${WORKSPACE}/DeployCustomerImageToAKS.sh'
 	    }
