@@ -8,5 +8,5 @@
 az login --service-principal -u 'http://ServicePrincipalName' -p '7b8d4a4a-320e-4cf2-b0f1-5ca00439d35c' --tenant '74d377a9-6eea-4db3-8d93-b2c8d9804e41'
 az aks get-credentials --resource-group azure-k8stest --name k8stest
 #./rancher kubectl replace -f ${WORKSPACE}/PushCustomerImageToK8.yaml
-kubectl replace -f ${WORKSPACE}/PushCustomerImageToAKSK8.yaml 
+kubectl create -f ${WORKSPACE}/PushCustomerImageToAKSK8.yaml 
 
