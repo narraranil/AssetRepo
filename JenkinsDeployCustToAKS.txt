@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+    	stage('Initialize'){
+            steps {
+                sh 'chmod -R 777 ${WORKSPACE}'
+            }
+        }
+	stage('Create Template'){
+			steps{
+			echo "Created Template"
+			}
+        }
+	
+	
+	stage('Push Customer image To K8'){
+		steps{
+		sh '${WORKSPACE}/DeployCustomerImageToAKS.sh'
+	    }
+	}
+    }
+} 
