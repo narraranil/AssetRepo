@@ -34,7 +34,7 @@ spec:
   ports:
   - protocol: TCP
     port: 5555
-    targetPort: 80
+    targetPort: 5555
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -44,9 +44,14 @@ metadata:
     kubernetes.io/ingress.class: azure/application-gateway
 spec:
   rules:
+  - host: foo.bar.com
   - http:
       paths:
       - path: /
         backend:
           serviceName: newsvc-customer-sagmsr-service
-          servicePort: 80
+          servicePort: 5555
+  tls:
+  - hosts:
+    - foo.bar.com
+    secretName: foo.bar.com
