@@ -28,7 +28,7 @@ apiVersion: v1
 metadata:
   name: newsvc-customer-sagmsr-service
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: newsvc-customer-sagmsr
   ports:
