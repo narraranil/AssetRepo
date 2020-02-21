@@ -22,16 +22,3 @@ spec:
         - containerPort: 5555
       imagePullSecrets:
         - name: acctest
----
-kind: Service
-apiVersion: v1	
-metadata:
-  name: newsvc-customer-sagmsr-service
-spec:
-  type: LoadBalancer
-  selector:
-    app: newsvc-customer-sagmsr
-  ports:
-  - protocol: TCP
-    port: 5555
-    targetPort: 5555
