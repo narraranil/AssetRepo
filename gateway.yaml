@@ -29,7 +29,7 @@ spec:
         app: api-gateway-deployment
     spec:
       containers:
-      - image: bhmmeka/api10.4:apigwdep
+      - image: narraranil/apigw:10.5
         imagePullPolicy: IfNotPresent
         name: api-gateway-deployment
         ports:
@@ -150,7 +150,7 @@ spec:
         path: /
   tls:
   - hosts:
-    - apigateway.daeidemo02.eur.ad.sag
+    - apigateway.daeipresal40399.eur.ad.sag
 status:
   loadBalancer:
     ingress:

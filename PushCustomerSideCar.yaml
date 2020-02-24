@@ -1,0 +1,87 @@
+#
+# Input file to create a Kubernetes deployment with a Microgateway
+# Docker image including health checks
+# 
+# Added pull always policy
+#
+# Prerequisites:
+#   1. Create Microgateway Docker Image
+#   2. Push Microgateway Docker image to Docker registry
+#   3. Create Native Service Docker Image
+#   4. Push Native Service Docker image to Docker registry
+#
+# Execute to create a Kubernetes deployment:
+#
+#   kubectl create -f yml.yml
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-service-deployment
+  namespace: asia-presales
+  labels:
+    app: customer-service
+spec:
+  minReadySeconds: 30
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-service
+  template:
+    metadata:
+      labels:
+        app: customer-service
+      annotations:
+        prometheus.io/scrape: "true"
+    spec:
+      containers:
+      - name: customer-service-sidecar
+        imagePullPolicy: Always
+        image: narraranil/customermg:1.0
+        ports:
+        - containerPort: 9090       # must match the exposed port of the microgateway docker image
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - /opt/softwareag/Microgateway/files/k8s-lifenesscheck.sh
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - /opt/softwareag/Microgateway/files/k8s-readinesscheck.sh
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+      - name: customer-service
+        imagePullPolicy: Always
+        image: narraranil/is:Customer1.0
+        ports:
+        - containerPort: 5555
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-service-svc
+  namespace: asia-presales
+
+spec:
+  # This defines which pods are going to be represented by this Service
+  # The service becomes a network endpoint for either other services
+  # or maybe external users to connect to (eg browser)
+  selector:
+    app: customer-service
+
+  ports:
+    - name: http
+      port: 9090
+      nodePort: 30080
+
+  type: NodePort

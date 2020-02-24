@@ -1,5 +1,5 @@
 api_gateway:
-   url: http://[gateway]/rest/apigateway
+   url: http://apigateway.daeipresal40399.eur.ad.sag/rest/apigateway
    user: Administrator
    password: "manage"
 ---
@@ -7,4 +7,4 @@ api_gateway:
 aliases:
   MicroServiceAlias:
     type: simple
-    value: http://[microservice]
+    value: http://localhost:8090

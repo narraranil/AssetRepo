@@ -33,6 +33,17 @@ pipeline {
         echo 'Uploaded Customers MSR image built successfully'
       }
     }
+    stage('Testing'){
+      parallel {
+
+    stage ('OperationalTesting') {
+	  
+ 			// Ant build step
+ 			steps{
+			
+ 				}
+	
+    }
     stage ('UnitTest') {
 	  
  			// Ant build step
@@ -42,6 +53,23 @@ pipeline {
       	publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '/var/lib/jenkins/workspace/AccelerateMSRCustomerImage/assets/IS/Tests/AirlineDemoTestSuiteExecutor/test/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
 	    }
 	
-}
+    }
+    }}
+stage('Clean') {
+      steps {
+        sh '''#Tidy up after build
+
+#Stop containers
+#docker stop productmg
+#docker stop productservicems
+
+#Prune
+docker image prune -f
+docker volume prune -f
+
+'''
+      }
+    }
+  }
   }
 }
