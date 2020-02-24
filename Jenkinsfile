@@ -71,5 +71,4 @@ docker volume prune -f
       }
     }
   }
-  }
 }
