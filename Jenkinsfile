@@ -27,7 +27,7 @@ pipeline {
       }
     }
 
-    stage('Push Customer image to docker registry') {
+    stage('Register Images') {
       steps {
         sh '${MSR_TARGET_DOCKER}/is_container.sh pushImage -Duser=${DockerRegistryUser} -Dpassword=${DockerRegistryPassword} -Dserver=${DockerRegistryUrl} -Drepository.name=${DockerRepositoryName} -Dimage.name=is:${CustomerTag}'
         echo 'Uploaded Customers MSR image built successfully'
@@ -54,7 +54,44 @@ pipeline {
 	    }
 	
     }
-    }}
+    }
+    }
+	stage('Create K8s Template'){
+          when {
+        branch 'master'
+      }
+            steps {
+                sh ("""
+		sed -i 's/DOCKERREPO/'"$DOCKERREPO"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+		sh ("""
+		sed -i 's/IMAGETAG/'"$IMAGETAG"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+		sh ("""
+		sed -i 's/APPNAME/'"$APPNAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+		sh ("""
+		sed -i 's/SERVICENAME/'"$SERVICENAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+		sh ("""
+		sed -i 's/ENDPOINT/'"$ENDPOINT"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+		sh ("""
+		sed -i 's/DEPLOYMENTNAME/'"$DEPLOYMENTNAME"'/g'  ${WORKSPACE}/PushCustomerImageToK8.yaml
+		""")
+            }
+        }
+	
+	
+	stage('Push Customer image To K8'){
+    when {
+        branch 'master'
+      }
+		steps{
+		sh '${WORKSPACE}/DeployCustomerImageToK8.sh'
+	    }
+	}
+
 stage('Clean') {
       steps {
         sh '''#Tidy up after build
