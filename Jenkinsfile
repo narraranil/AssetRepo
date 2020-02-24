@@ -40,7 +40,7 @@ pipeline {
 	  
  			// Ant build step
  			steps{
-			
+			    echo 'Operations tested'
  				}
 	
     }
