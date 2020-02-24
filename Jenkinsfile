@@ -56,7 +56,7 @@ pipeline {
     }
     }
     }
-	stage('Create Template'){
+	stage('Create K8s Template'){
           when {
         branch 'master'
       }
