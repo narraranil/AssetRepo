@@ -1,5 +1,5 @@
 api_gateway:
-   url: http://apigateway.daeipresal40399.eur.ad.sag:5555/rest/apigateway
+   url: http://apigateway.daeipresal40399.eur.ad.sag/rest/apigateway
    user: Administrator
    password: "manage"
 ---
