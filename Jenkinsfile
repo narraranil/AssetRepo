@@ -19,18 +19,41 @@ pipeline {
         echo 'Customers package docker file created'
       }
     }
-
-    stage('Build Customer Image') {
+     stage('Build Images') {
+       parallel {
+    stage('Customer Service') {
       steps {
         sh "${MSR_TARGET_DOCKER}/is_container.sh buildPackage -Dimage.name=is:${CustomerTag} -Dfile.name=CustomerMSR"
         echo 'Customers MSR image built successfully'
       }
     }
+    stage('Customer Microgateway') {
+      steps {
+        sh '''#Build MicroGateway
+cd /opt/softwareag_mgw105/Microgateway/
+./microgateway.sh createDockerFile --docker_dir . -p 9090 -a ./tmp-docker/Customer.zip -dof ./Dockerfile -c ./tmp-docker/config.yml
+docker build -t customermg:1.0 .'''
+        echo 'Customers MSR image built successfully'
+      }
+    }
+       }
+    }
 
     stage('Register Images') {
+      parallel {
+      stage('Customer Service'){
       steps {
         sh '${MSR_TARGET_DOCKER}/is_container.sh pushImage -Duser=${DockerRegistryUser} -Dpassword=${DockerRegistryPassword} -Dserver=${DockerRegistryUrl} -Drepository.name=${DockerRepositoryName} -Dimage.name=is:${CustomerTag}'
         echo 'Uploaded Customers MSR image built successfully'
+      }
+    }
+     stage('Customer Microgateway'){
+      steps {
+        sh 'docker tag customermg:1.0 narraranil/customermg:1.0'
+        sh 'docker push narraranil/customermg:1.0'
+        echo 'Uploaded Customers Microgateway built successfully'
+      }
+    }
       }
     }
     stage('Testing'){
