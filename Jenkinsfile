@@ -24,6 +24,7 @@ pipeline {
     stage('Customer Service') {
       steps {
         sh "${MSR_TARGET_DOCKER}/is_container.sh buildPackage -Dimage.name=is:${CustomerTag} -Dfile.name=CustomerMSR"
+
         echo 'Customers MSR image built successfully'
       }
     }
@@ -43,7 +44,9 @@ docker build -t customermg:1.0 .'''
       parallel {
       stage('Customer Service'){
       steps {
-        sh '${MSR_TARGET_DOCKER}/is_container.sh pushImage -Duser=${DockerRegistryUser} -Dpassword=${DockerRegistryPassword} -Dserver=${DockerRegistryUrl} -Drepository.name=${DockerRepositoryName} -Dimage.name=is:${CustomerTag}'
+        sh "docker tag is:${CustomerTag} narraranil/is:${CustomerTag}"
+        sh "docker push narraranil/is:${CustomerTag}"
+        echo '${MSR_TARGET_DOCKER}/is_container.sh pushImage -Duser=${DockerRegistryUser} -Dpassword=${DockerRegistryPassword} -Dserver=${DockerRegistryUrl} -Drepository.name=${DockerRepositoryName} -Dimage.name=is:${CustomerTag}'
         echo 'Uploaded Customers MSR image built successfully'
       }
     }
