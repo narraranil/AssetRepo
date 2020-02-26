@@ -24,20 +24,6 @@ spec:
       imagePullSecrets:
         - name: acctest
 ---
-kind: Service
-apiVersion: v1	
-metadata:
-  name: SERVICENAME
-  namespace: asia-presales
-spec:
-  type: ClusterIP
-  selector:
-    app: APPNAME
-  ports:
-  - protocol: TCP
-    port: 5555
-    targetPort: 5555
----
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
