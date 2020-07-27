@@ -22,3 +22,13 @@ spec:
         - containerPort: 5555
       imagePullSecrets:
         - name: acctest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: newsvc-customer-msr-deployment
+spec:
+  ports:
+  - port: 5555
+  selector:
+    app: newsvc-customer-msr-deployment
