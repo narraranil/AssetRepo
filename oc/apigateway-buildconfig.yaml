@@ -1,0 +1,37 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: docker-build
+  labels:
+    name: docker-build
+spec:
+  triggers: []
+  source:
+    dockerfile: |-
+      FROM daerepository03:4443/api-management/apigateway:10.5
+      USER root
+      RUN chgrp -R 0 /opt/softwareag/ && chmod -R g=u /opt/softwareag/
+      USER 1724
+  strategy:
+    type: Docker
+    dockerStrategy:
+      pullSecret: 
+        name: secret/hub-secret
+ output:
+    to:
+      kind: ImageStreamTag
+      name: 'apigateway-trial-with-root-group:10.5'
+  postCommit: {}
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: apigateway-trial-with-root-group
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: '10.5'
+      importPolicy: {}
+      referencePolicy:
+        type: Local
