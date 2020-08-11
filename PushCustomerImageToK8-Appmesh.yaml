@@ -28,6 +28,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name:  SERVICENAME
+  namespace: asia-presales
   labels:
     app: APPNAME
     service: SERVICENAME
