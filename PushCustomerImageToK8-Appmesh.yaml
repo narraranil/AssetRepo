@@ -46,6 +46,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: SERVICENAME-ingress
+  namespace: asia-presales  
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt
