@@ -1,4 +1,4 @@
-cp -rf /var/lib/jenkins/workspace/AccelerateMSRCustomerImage/assets/IS/Packages/Customers /opt/softwareag/IntegrationServer/packages
+cp -rf /root/.jenkins/workspace/AssetRepo_master/assets/IS/Packages/Customers /opt/softwareag/IntegrationServer/packages
 #cp -rf /var/lib/jenkins/workspace/AccelerateMSRCustomerImage/assets/IS/Tests/CustomersTest /opt/softwareag/IntegrationServer/packages
 cp -rf /var/lib/jenkins/workspace/AccelerateMSRCustomerImage/assets/IS/Packages/AirlineDemo /opt/softwareag/IntegrationServer/packages
 #cp -rf /var/lib/jenkins/workspace/AccelerateMSRCustomerImage/assets/IS/Tests/AirlineDemoTests /opt/softwareag/IntegrationServer/packages
