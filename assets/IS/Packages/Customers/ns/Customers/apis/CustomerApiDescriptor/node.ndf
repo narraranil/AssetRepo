@@ -201,7 +201,7 @@
           <Boolean name="includeInRad">true</Boolean>
         </record>
         <record name="payeeAccount" javaclass="com.wm.util.Values">
-          <value name="name">payeeAccount</value>
+          <value name="name">payeeAccountNumber</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
           <value name="description"></value>
