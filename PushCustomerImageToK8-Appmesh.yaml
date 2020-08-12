@@ -38,8 +38,8 @@ spec:
   type:  NodePort
   ports:
   - name:  7777http
-    port:  7777
-    targetPort: 7777
+    port:  5555
+    targetPort: 5555
     protocol: TCP
 ---
 apiVersion: extensions/v1beta1
@@ -63,4 +63,4 @@ spec:
         - path: /
           backend:
             serviceName: SERVICENAME
-            servicePort: 7777
+            servicePort: 5555
