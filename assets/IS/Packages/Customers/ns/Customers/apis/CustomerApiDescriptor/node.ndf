@@ -51,7 +51,7 @@
           <value name="name">output</value>
           <value name="source">BODY</value>
           <value name="type">REFERENCE</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -72,7 +72,7 @@
           <value name="name">Customers</value>
           <value name="source">BODY</value>
           <value name="type">REFERENCE</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -93,7 +93,7 @@
           <value name="name">phone</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -105,7 +105,7 @@
           <value name="name">email</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -126,7 +126,7 @@
           <value name="name">result</value>
           <value name="source">FORMDATA</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -147,7 +147,7 @@
           <value name="name">output</value>
           <value name="source">BODY</value>
           <value name="type">REFERENCE</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -168,7 +168,7 @@
           <value name="name">payee</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -180,7 +180,7 @@
           <value name="name">amount</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -192,7 +192,7 @@
           <value name="name">currency</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -200,11 +200,11 @@
           <null name="definitionName"/>
           <Boolean name="includeInRad">true</Boolean>
         </record>
-        <record name="payeeAccount" javaclass="com.wm.util.Values">
-          <value name="name">payeeAccount</value>
+        <record name="payeeAccountNumber" javaclass="com.wm.util.Values">
+          <value name="name">payeeAccountNumber</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -225,7 +225,7 @@
           <value name="name">name</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -237,7 +237,7 @@
           <value name="name">id</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -249,7 +249,7 @@
           <value name="name">address</value>
           <value name="source">BODY</value>
           <value name="type">REFERENCE</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -261,7 +261,7 @@
           <value name="name">contact</value>
           <value name="source">BODY</value>
           <value name="type">REFERENCE</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -282,7 +282,7 @@
           <value name="name">num1</value>
           <value name="source">FORMDATA</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -294,7 +294,7 @@
           <value name="name">num2</value>
           <value name="source">FORMDATA</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -315,7 +315,7 @@
           <value name="name">customers</value>
           <value name="source">BODY</value>
           <value name="type">REFERENCE</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">true</Boolean>
           <null name="defaultValue"/>
@@ -336,7 +336,7 @@
           <value name="name">line1</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -348,7 +348,7 @@
           <value name="name">city</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -360,7 +360,7 @@
           <value name="name">state</value>
           <value name="source">QUERY</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -381,7 +381,7 @@
           <value name="name">Customers</value>
           <value name="source">BODY</value>
           <value name="type">REFERENCE</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -402,7 +402,7 @@
           <value name="name">num1</value>
           <value name="source">FORMDATA</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -414,7 +414,7 @@
           <value name="name">num2</value>
           <value name="source">FORMDATA</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -435,7 +435,7 @@
           <value name="name">result</value>
           <value name="source">FORMDATA</value>
           <value name="type">STRING</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -456,7 +456,7 @@
           <value name="name">transactions</value>
           <value name="source">BODY</value>
           <value name="type">REFERENCE</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">true</Boolean>
           <null name="defaultValue"/>
@@ -477,7 +477,7 @@
           <value name="name">payments</value>
           <value name="source">BODY</value>
           <value name="type">REFERENCE</value>
-          <null name="description"/>
+          <value name="description"></value>
           <Boolean name="isRequired">true</Boolean>
           <Boolean name="isArray">false</Boolean>
           <null name="defaultValue"/>
@@ -497,6 +497,7 @@
         <record name="GET" javaclass="com.wm.util.Values">
           <value name="operationType">GET</value>
           <value name="nsName">/customers_GET</value>
+          <value name="description"></value>
           <array name="requiredDefinitions" type="value" depth="1">
             <value>Customers.documents:customers</value>
             <value>Customers.documents:customers.customers</value>
@@ -509,7 +510,7 @@
               <value name="name">id</value>
               <value name="source">FORMDATA</value>
               <value name="type">STRING</value>
-              <null name="description"/>
+              <value name="description"></value>
               <Boolean name="isRequired">true</Boolean>
               <Boolean name="isArray">false</Boolean>
               <null name="defaultValue"/>
@@ -553,6 +554,7 @@
         <record name="GET" javaclass="com.wm.util.Values">
           <value name="operationType">GET</value>
           <value name="nsName">/customer/{id}_GET</value>
+          <value name="description"></value>
           <array name="requiredDefinitions" type="value" depth="1">
             <value>Customers.documents:customers</value>
             <value>/customer/{id}_GET_$response</value>
@@ -562,7 +564,7 @@
               <value name="name">id</value>
               <value name="source">PATH</value>
               <value name="type">STRING</value>
-              <null name="description"/>
+              <value name="description"></value>
               <Boolean name="isRequired">true</Boolean>
               <Boolean name="isArray">false</Boolean>
               <null name="defaultValue"/>
@@ -606,6 +608,7 @@
         <record name="POST" javaclass="com.wm.util.Values">
           <value name="operationType">POST</value>
           <value name="nsName">/demoCircuitBreaker_POST</value>
+          <value name="description"></value>
           <array name="requiredDefinitions" type="value" depth="1">
             <value>Customers.services:demoCircuitBreaker.inputs</value>
             <value>Customers.services:demoCircuitBreaker.output</value>
@@ -616,7 +619,7 @@
               <value name="name">inputs</value>
               <value name="source">BODY</value>
               <value name="type">REFERENCE</value>
-              <null name="description"/>
+              <value name="description"></value>
               <Boolean name="isRequired">true</Boolean>
               <Boolean name="isArray">false</Boolean>
               <null name="defaultValue"/>
@@ -660,6 +663,7 @@
         <record name="POST" javaclass="com.wm.util.Values">
           <value name="operationType">POST</value>
           <value name="nsName">/demoCircuitBreakerAlt_POST</value>
+          <value name="description"></value>
           <array name="requiredDefinitions" type="value" depth="1">
             <value>Customers.services:demoCircuitBreakerAlt.inputs</value>
             <value>Customers.services:demoCircuitBreakerAlt.output</value>
@@ -670,7 +674,7 @@
               <value name="name">inputs</value>
               <value name="source">BODY</value>
               <value name="type">REFERENCE</value>
-              <null name="description"/>
+              <value name="description"></value>
               <Boolean name="isRequired">true</Boolean>
               <Boolean name="isArray">false</Boolean>
               <null name="defaultValue"/>
@@ -714,6 +718,7 @@
         <record name="GET" javaclass="com.wm.util.Values">
           <value name="operationType">GET</value>
           <value name="nsName">/payments/{id}_GET</value>
+          <value name="description"></value>
           <array name="consumes" type="value" depth="1">
             <value>application/json</value>
           </array>
@@ -730,7 +735,7 @@
               <value name="name">id</value>
               <value name="source">PATH</value>
               <value name="type">STRING</value>
-              <null name="description"/>
+              <value name="description"></value>
               <Boolean name="isRequired">true</Boolean>
               <Boolean name="isArray">false</Boolean>
               <null name="defaultValue"/>

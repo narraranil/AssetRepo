@@ -83,7 +83,10 @@
 
   <!-- nodes -->
 
-<MAPSET NAME="Setter" OVERWRITE="false" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/payments;4;0;Customers.documents:payments/transactions;2;1">
+<MAPDELETE FIELD="/id;1;0">
+</MAPDELETE>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/payments;4;0;Customers.documents:payments/transactions;2;1">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
@@ -208,9 +211,6 @@
 </Values>
 </DATA>
 </MAPSET>
-
-<MAPDELETE FIELD="/id;1;0">
-</MAPDELETE>
 </MAP>
 </SEQUENCE>
 
